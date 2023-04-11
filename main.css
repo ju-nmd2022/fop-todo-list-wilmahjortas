@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  margin-top: 3em;
+}
+
+h1 {
+  font-size: 30pt;
+}
+
+#container {
+  background-color: pink;
+  height: 100%;
+  text-align: center;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+input {
+  background-color: #ffe5ec;
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  margin-left: 20%;
+}
+
+#addTaskButton {
+  height: 30px;
+  margin-top: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#whiteButton {
+  background-color: #ffe5ec;
+  height: 34px;
+  width: 45px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 20%;
+}
+
+#content {
+  margin-top: 20px;
+}
+
+#content input {
+  margin-top: 10px;
+}
