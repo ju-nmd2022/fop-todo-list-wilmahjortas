@@ -46,3 +46,15 @@ input {
   cursor: pointer;
   margin-right: 20%;
 }
+
+.inputText {
+  text-align: center;
+}
+
+.remove {
+  margin-left: 20px;
+}
+
+.complete {
+  margin-left: 20px;
+}

@@ -27,6 +27,7 @@ function taskLoop() {
   listElement.innerHTML = "";
   for (let task of taskArray) {
     const taskElement = document.createElement("div");
+    taskElement.classList.add("inputText");
     taskElement.innerText = task;
     listElement.appendChild(taskElement);
 
@@ -47,8 +48,14 @@ function taskLoop() {
     taskElement.appendChild(completeButton);
     completeButton.classList.add("complete");
 
+    if (localStorage.getItem(taskElement.innerText)) {
+      taskElement.style.textDecoration = "line-through";
+    }
+
     completeButton.addEventListener("click", () => {
       taskElement.style.textDecoration = "line-through";
+
+      localStorage.setItem(taskElement.innerText, "completed");
     });
   }
 }
