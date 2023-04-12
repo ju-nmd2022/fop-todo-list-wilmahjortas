@@ -1,5 +1,3 @@
-//asked both chatGTP and Daniel Lidén for some help to get some inspiration on how to solve the localstorage
-
 let taskArray = [];
 
 const listElement = document.getElementById("taskList");
@@ -27,6 +25,7 @@ function addContent() {
   inputField.value = "";
 }
 
+//help from Daniel Lidén on how to display the array on the screen
 function taskLoop() {
   listElement.innerHTML = "";
   for (let task of taskArray) {
@@ -51,6 +50,8 @@ function taskLoop() {
     completeButton.innerText = "✅";
     taskElement.appendChild(completeButton);
     completeButton.classList.add("complete");
+
+    // got some help from ChatGTP
 
     if (localStorage.getItem(taskElement.innerText)) {
       taskElement.style.color = "green";
