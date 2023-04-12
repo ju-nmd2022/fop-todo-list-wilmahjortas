@@ -1,3 +1,5 @@
+//asked both chatGTP and Daniel Lidén for some help to get some inspiration on how to solve the localstorage
+
 let taskArray = [];
 
 const listElement = document.getElementById("taskList");
@@ -10,8 +12,8 @@ if (localStorage.inputValue) {
 }
 
 addTaskButton.addEventListener("click", function () {
-  taskLoop();
   addContent();
+  taskLoop();
 });
 
 function addContent() {
@@ -21,6 +23,8 @@ function addContent() {
   taskArray.push(inputValue);
   localStorage.inputValue = JSON.stringify(taskArray);
   console.log(taskArray);
+
+  inputField.value = "";
 }
 
 function taskLoop() {
@@ -32,7 +36,7 @@ function taskLoop() {
     listElement.appendChild(taskElement);
 
     const removeButton = document.createElement("button");
-    removeButton.innerText = "Remove";
+    removeButton.innerText = "❌";
     taskElement.appendChild(removeButton);
     removeButton.classList.add("remove");
 
@@ -44,16 +48,16 @@ function taskLoop() {
     });
 
     const completeButton = document.createElement("button");
-    completeButton.innerText = "Complete";
+    completeButton.innerText = "✅";
     taskElement.appendChild(completeButton);
     completeButton.classList.add("complete");
 
     if (localStorage.getItem(taskElement.innerText)) {
-      taskElement.style.textDecoration = "line-through";
+      taskElement.style.color = "green";
     }
 
     completeButton.addEventListener("click", () => {
-      taskElement.style.textDecoration = "line-through";
+      taskElement.style.color = "green";
 
       localStorage.setItem(taskElement.innerText, "completed");
     });
@@ -61,29 +65,3 @@ function taskLoop() {
 }
 
 taskLoop();
-
-/* function addContent() {
-  const newTaskElement = document.createElement("div");
-
-  const newInputElement = document.createElement("input");
-  newInputElement.className = "textWindow";
-  newInputElement.placeholder = "Write task";
-  newInputElement.type = "text";
-
-  const buttonElement = document.createElement("button");
-  buttonElement.className = "whiteButton";
-  buttonElement.textContent = "⚪";
-
-  buttonElement.addEventListener("click", function () {
-    if (buttonElement.textContent === "⚪") {
-      buttonElement.textContent = "🟢";
-    } else {
-      buttonElement.textContent = "⚪";
-    }
-  });
-
-  newTaskElement.appendChild(newInputElement);
-  newTaskElement.appendChild(buttonElement);
-
-  container.appendChild(newTaskElement);
-} */
