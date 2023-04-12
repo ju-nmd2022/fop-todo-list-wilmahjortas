@@ -43,6 +43,8 @@ function taskLoop() {
 
     removeButton.addEventListener("click", () => {
       taskArray.splice(index, 1);
+      localStorage.inputValue = JSON.stringify(taskArray);
+      localStorage.removeItem(taskElement.innerText);
       taskLoop();
     });
 
@@ -64,5 +66,4 @@ function taskLoop() {
     });
   }
 }
-
 taskLoop();
